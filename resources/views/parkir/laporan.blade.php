@@ -11,7 +11,6 @@
                 <th>Jam Masuk</th>
                 <th>Jam Keluar</th>
                 <th>Biaya</th>
-                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -23,11 +22,8 @@
             <td>{{ $no++ }}</td>
             <td>{{ $row->tiket }}</td>
             <td>{{ date('H:i:s / d-M-Y', strtotime($row->waktu_masuk)) }}</td>
-            <td>{{ date('H:i:s / d-M-Y', strtotime($row->waktu_keluar)) }}</td>
+            <td>{{ date('H:i:s / d-M-Y', $row->waktu_keluar) }}</td>
             <td>Rp. {{ $row->biaya }}</td>
-            <td style="width: 70px">
-              <a href="/parkir/bayar/{{ $row->id }}" class="btn btn-info btn-sm">Check Out</a>
-            </td>
           </tr>
           @endforeach
             

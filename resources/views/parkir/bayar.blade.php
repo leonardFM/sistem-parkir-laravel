@@ -29,8 +29,8 @@
   <form action="/parkir/laporan/{{ $data->id }}" method="post">
     @csrf
     <input type="hidden" name="tiket" value="{{ $data->tiket }}">
-    <input type="hidden" name="waktu_masuk" value="{{ $awal }}">
-    <input type="hidden" name="waktu_keluar" value="{{ $akhir }}">
+    <input type="hidden" name="waktu_masuk" value="{{ $data->created_at }}">
+    <input type="hidden" name="waktu_keluar" value="{{ $date }}">
     <input type="hidden" name="biaya" value="{{ $biaya }}">
 
     <button type="submit" class="btn btn-primary"> input </button>
