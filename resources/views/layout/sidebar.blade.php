@@ -9,15 +9,13 @@
       <ul class="sidebar-menu">
         <li class="menu-header">Master</li>
         <li class="dropdown">
-          <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Menu</span></a>
+          <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Admin</span></a>
           <ul class="dropdown-menu">
-            <li><a class="nav-link" href="/tiket">Laporan</a></li>
-            {{-- <li><a class="nav-link" href="index.html">Kendaraan</a></li> --}}
+            <li><a class="nav-link" href="/parkir/laporan">Laporan</a></li>
           </ul>
         </li>
         <li class="menu-header">Starter</li>
         <li><a class="nav-link" href="/parkir/create"><i class="fas fa-pencil-ruler"></i> <span>Parkir</span></a></li>
-        <li><a class="nav-link" href="/parkir/create"><i class="fas fa-pencil-ruler"></i> <span>Logout</span></a></li>
                     
         
       </ul>

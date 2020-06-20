@@ -22,3 +22,7 @@ Route::get('/parkir/create', 'parkirController@create');
 Route::post('/parkir/create', 'parkirController@store');
 Route::get('/parkir/karcis', 'parkirController@karcis');
 Route::get('/parkir/bayar/{parkir}', 'parkirController@bayar');
+
+
+Route::get('/parkir/laporan', 'laporanController@index');
+Route::post('/parkir/laporan/{parkir}', 'laporanController@hasilLaporan');

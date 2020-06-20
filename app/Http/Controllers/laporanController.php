@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Laporan;
 use App\Parkir;
 use Illuminate\Http\Request;
-use Illuminate\Support\Carbon;
 
-class parkirController extends Controller
+class laporanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,20 @@ class parkirController extends Controller
      */
     public function index()
     {
-        $data = Parkir::all();
-        return view('parkir.index', compact('data'));
+        $laporan = Laporan::all();
+        return view('parkir.laporan', compact('laporan'));
+    }
+
+    public function hasilLaporan(Parkir $parkir, Request $request)
+    {
+        Laporan::create([
+            'tiket' => $request->tiket,
+            'waktu_masuk' => $request->waktu_masuk,
+            'waktu_keluar' => $request->waktu_keluar,
+            'biaya' => $request->biaya
+        ]);
+        Parkir::destroy($parkir->id);
+        return redirect('parkir/laporan');
     }
 
     /**
@@ -26,22 +38,8 @@ class parkirController extends Controller
      */
     public function create()
     {
-        return view('parkir.add');
+        //
     }
-
-    public function karcis()
-    {
-        $karcis = Parkir::get()->last();
-        return view('parkir.karcis', compact('karcis'));
-    }
-
-    public function bayar(Parkir $parkir)
-    {
-        $date = time();
-        $data = Parkir::findorfail($parkir->id);
-        return view('parkir.bayar', compact('data', 'date'));
-    }
-
 
     /**
      * Store a newly created resource in storage.
@@ -51,17 +49,16 @@ class parkirController extends Controller
      */
     public function store(Request $request)
     {
-        Parkir::create(['tiket' => $request->tiket]);
-        return redirect('/parkir/karcis');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Parkir  $parkir
+     * @param  \App\Laporan  $laporan
      * @return \Illuminate\Http\Response
      */
-    public function show(Parkir $parkir)
+    public function show(Laporan $laporan)
     {
         //
     }
@@ -69,10 +66,10 @@ class parkirController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Parkir  $parkir
+     * @param  \App\Laporan  $laporan
      * @return \Illuminate\Http\Response
      */
-    public function edit(Parkir $parkir)
+    public function edit(Laporan $laporan)
     {
         //
     }
@@ -81,10 +78,10 @@ class parkirController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Parkir  $parkir
+     * @param  \App\Laporan  $laporan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Parkir $parkir)
+    public function update(Request $request, Laporan $laporan)
     {
         //
     }
@@ -92,10 +89,10 @@ class parkirController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Parkir  $parkir
+     * @param  \App\Laporan  $laporan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Parkir $parkir)
+    public function destroy(Laporan $laporan)
     {
         //
     }
